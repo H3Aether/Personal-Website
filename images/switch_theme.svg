@@ -1,0 +1,15 @@
+<svg onclick="moveKnob()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 200">
+    <script type="text/ecmascript"><![CDATA[
+        function moveKnob() {
+            const knob = document.getElementById('knob');
+            if (knob.cx.baseVal.value == 286) {
+                knob.setAttribute('cx', 113);
+            }
+            else {
+                knob.setAttribute('cx', 286);
+            }
+        }
+    ]]>
+    </script>
+    <defs><style>.cls-1{mask:url(#mask);}.cls-2{fill:#e8e8e8;}.cls-3{fill:#c1000e;}.cls-4{fill:#26262c;}.cls-5{fill:#f1f4f6;}.cls-6,.cls-7{fill:none;stroke:#f1f4f6;stroke-miterlimit:10;}.cls-6{stroke-width:5.61px;}.cls-7{stroke-linecap:round;stroke-width:4.95px;}</style><mask id="mask" x="-17.72" y="-240.57" width="200" height="241" maskUnits="userSpaceOnUse"/></defs><g id="Calque_3" data-name="Calque 3"><g class="cls-1"><rect class="cls-2" x="48.78" y="-240.57" width="67" height="241"/><rect class="cls-3" x="62.78" y="-240.57" width="39" height="241"/></g></g><g id="Calque_5" data-name="Calque 5"><path class="cls-4" d="M108.29,178.57a78.57,78.57,0,0,1,0-157.14H291.71a78.57,78.57,0,0,1,0,157.14Z"/><path class="cls-5" d="M291.71,23.43A76.79,76.79,0,0,1,368.28,100h0a76.79,76.79,0,0,1-76.57,76.57H108.29A76.79,76.79,0,0,1,31.72,100h0a76.79,76.79,0,0,1,76.57-76.57H291.71m0-4H108.29A80.48,80.48,0,0,0,51.38,156.91a80,80,0,0,0,56.91,23.66H291.71A80.48,80.48,0,0,0,348.62,43.09a80,80,0,0,0-56.91-23.66Z"/><path class="cls-6" d="M326.16,120.48a43.14,43.14,0,1,1-58.41-59.92.79.79,0,0,1,1.13,1,43.16,43.16,0,0,0,56.3,57.77A.79.79,0,0,1,326.16,120.48Z"/><circle class="cls-7" cx="113" cy="100.45" r="17.08"/><line class="cls-7" x1="113" y1="129.21" x2="113" y2="140"/><line class="cls-7" x1="113" y1="60" x2="113" y2="71.69"/><line class="cls-7" x1="92.34" y1="120.66" x2="84.72" y2="128.28"/><line class="cls-7" x1="141.28" y1="71.72" x2="133.02" y2="79.98"/><line class="cls-7" x1="83.79" y1="100" x2="73" y2="100"/><line class="cls-7" x1="153" y1="100" x2="141.31" y2="100"/><line class="cls-7" x1="92.34" y1="79.34" x2="84.72" y2="71.72"/><line class="cls-7" x1="141.28" y1="128.28" x2="133.02" y2="120.02"/><circle id="knob" class="cls-5" cx="286" cy="100" r="55.78"/></g>
+</svg>
