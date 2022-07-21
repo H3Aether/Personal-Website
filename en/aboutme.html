@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alexis Boussaroque</title>
+        <link rel="stylesheet" href="../src/css/styles_common.css">
+        <link rel="stylesheet" href="../src/css/styles_aboutme.css">
+        <link rel="stylesheet" href="../src/fonts/fonts.css">
+        <link rel="icon" href="../images/website_logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Homepage -->
+        <div class="homepage-background">
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-1" name="4" src="../images/gradient_circle.png">
+            </div>
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-2" name="6" src="../images/gradient_circle.png">
+            </div>
+
+            <div class="margin-div homepage-div js-animation-aboutme">
+                <div class="aboutme-div">
+                    <div class="aboutme-text js-hidden two-s">
+                        <p class="aboutme-p">About me</p>
+                    </div>
+                    <div class="description-text">
+                        <p class="js-hidden two-s">My name is Alexis Boussaroque, I am 20 years old, and a student at l’Ecole des Mines de Saint-Etienne, a top french engineering school. I relentlessy studied maths and physics for 2 years in a preparatory class to integrate it, but I still love these subjects!</p>
+                        <p class="js-hidden two-s">I have always wanted to get involved in state-of-the-art technology, that is why I chose to specialise in computer science and microelectronics. I feel motivated by knowing that my contribution will be useful to other people, and am always looking for new challenges and opportunities to learn and grow.</p>
+                        <p class="js-hidden two-s">I remain curious about all sorts of things, because I believe that understanding the work of others plays a major role in the success of our own.</p>
+                        <p class="js-hidden two-s">In the future, I want to bring together my skills and my passions: working on electronics that will be sent to space, designing a new car embedded system, coding a modern AI...</p>
+                        <p class="js-hidden two-s">I am currently looking forward to buiding up experience, and discovering work environments abroad.</p>
+                    </div>
+                </div>
+                <img class = "photo-uniform js-hidden two-s" src="../images/photo_uniform.jpg"/>
+            </div>
+        </div>
+
+        <!-- Bottom Part -->
+        <div class="white-background">
+            <div class="margin-div">
+                <div class="experiences-title">
+                    My experiences
+                </div>
+                <div class="experiences">
+                    <div class="js-animation-2 js-hidden"> <!-- Job 1 : Fabie -->
+                        <div class="job-country">
+                            <div>
+                                <img src="../images/flag_fr.png"/>
+                                <p>France</p>
+                            </div>
+                            <div>Jul. 2021</div>
+                        </div>
+                        <div class="job-logo" >
+                            <img src="../images/logo_fabie.png"/>
+                        </div>
+                        <div class="job-title">
+                           Fabié Bakery
+                        </div>
+                        <div class="job-description">
+                            Time recording to optimise industrial production.
+                        </div>
+                    </div>
+                    <div class="js-animation-2 js-hidden"> <!-- Job 2 : FEDD -->
+                        <div class="job-country">
+                            <div>
+                                <img src="../images/flag_fr.png"/>
+                                <p>France</p>
+                            </div>
+                            <div>Jan. 2022</div>
+                        </div>
+                        <div class="job-logo" >
+                            <img src="../images/logo_fedd.png"/>
+                        </div>
+                        <div class="job-title">
+                            Dordogne Electronic Manufactury (FEDD)
+                        </div>
+                        <div class="job-description">
+                            Worked as an intern on the international NADCAP certification.
+                        </div>
+                    </div>
+                    <div class="js-animation-2 js-hidden"> <!-- Job seek -->
+                        <div class="job-seek-message">
+                            It is a bit empty here... Would you help me to fill it?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer comment -->
+            <div class="footer-comment">
+                <p>Written by Alexis, backyard space wanderer, Porsche 944 lover, best friend with Github Copilot.</p>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar -->
+        <div class="mobile-navbar">
+            <div class="mobile-tabs">
+                <div>
+                    <a class="tab" onclick="handleHomeClick()" href="index.html">Home</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleAboutMeClick()" href="aboutme.html">About me</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleBlogClick()" href="">Blog</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                </div>
+                <div class="mobile-flag"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-flex">
+                <div>
+                    <img class="header-image" src="../images/website_logo.png"></img>
+                </div>
+                <div class="tabs">
+                    <div>
+                        <a class="tab" onclick="handleHomeClick()" href="index.html">Home</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleAboutMeClick()" href="">About me</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleBlogClick()" href="#home">Blog</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="top-right-image" onclick="handleTopRightClick()"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../src/js/animations.js"></script>
+        <script src="../src/js/parallax.js"></script>
+        <script src="../src/js/top_right_button.js"></script>
+        <script src="../src/js/tabs.js"></script>
+        <script src="../src/js/aboutme_homepage.js"></script>
+    </body>
+</html>
