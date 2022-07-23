@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" style="scroll-behavior: smooth;">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alexis Boussaroque</title>
+        <link rel="stylesheet" href="css/styles_common.css">
+        <link rel="stylesheet" href="css/styles_aboutme.css">
+        <link rel="stylesheet" href="../src/fonts/fonts.css">
+        <link rel="icon" href="../images/website_logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Homepage -->
+        <div class="homepage-background">
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-1" name="4" src="../images/gradient_circle.png">
+            </div>
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-2" name="6" src="../images/gradient_circle.png">
+            </div>
+
+            <div class="margin-div homepage-div js-animation-aboutme">
+                <div class="aboutme-div">
+                    <div class="aboutme-text js-hidden two-s">
+                        <p class="aboutme-p">A propos de moi</p>
+                    </div>
+                    <div class="description-text">
+                        <p class="js-hidden two-s">Je m’appelle Alexis Boussaroque, j’ai 20 ans, et étudie à l’Ecole des Mines de Saint-Etienne. J’ai passé 2 ans en CPGE MP* au lycée Blaise Pascal, Clermont-Ferrand, où j’ai fait beaucoup de maths et de physique, mais je suis toujours autant passionné !</p>
+                        <p class="js-hidden two-s">J’ai toujours voulu être impliqué dans la technologie de pointe, c’est pourquoi j’ai choisi de me spécialiser dans l’informatique et la microélectronique. Je me sens motivé en sachant que ma contribution sera utile pour les autres, et suis toujours à la recherche de nouveaux défis et opportunités pour apprendre.</p>
+                        <p class="js-hidden two-s">Je reste curieux à propos de toutes sortes de sujets, car je crois que comprendre le travail des autres joue un rôle majeur dans la qualité du nôtre.</p>
+                        <p class="js-hidden two-s">Dans le futur, j’aimerais que mes compétences et mes passions se rejoignent : travailler sur de l’électronique qui sera envoyée dans l’espace, concevoir un nouveau système embarqué de voiture, développer une IA moderne...</p>
+                        <p class="js-hidden two-s">Je souhaite actuellement acquérir de l’expérience, et découvrir des environnements de travail à l’étranger.</p>
+                    </div>
+                </div>
+                <img class = "photo-uniform js-hidden two-s" src="../images/photo_uniform.jpg"/>
+            </div>
+        </div>
+
+        <!-- Bottom Part -->
+        <div class="white-background">
+            <div class="margin-div">
+                <div class="experiences-title">
+                    Mes expériences
+                </div>
+                <div class="experiences">
+                    <div class="js-animation-2 js-hidden"> <!-- Job 1 : Fabie -->
+                        <div class="job-country">
+                            <div>
+                                <img src="../images/flags/flag_fr.png"/>
+                                <p>France</p>
+                            </div>
+                            <div>Jul. 2021</div>
+                        </div>
+                        <div class="job-logo" >
+                            <img src="../images/experiences/logo_fabie.png"/>
+                        </div>
+                        <div class="job-title">
+                           Pâtisserie Fabié
+                        </div>
+                        <div class="job-description">
+                            Relevés de temps afin d'optimiser la production industrielle (CDD).
+                        </div>
+                    </div>
+                    <div class="js-animation-2 js-hidden"> <!-- Job 2 : FEDD -->
+                        <div class="job-country">
+                            <div>
+                                <img src="../images/flags/flag_fr.png"/>
+                                <p>France</p>
+                            </div>
+                            <div>Jan. 2022</div>
+                        </div>
+                        <div class="job-logo" >
+                            <img src="../images/experiences/logo_fedd.png"/>
+                        </div>
+                        <div class="long-job-title">
+                            Fabrication Electronique de Dordogne (FEDD)
+                        </div>
+                        <div class="job-description">
+                            Travail sur la certification internationale NADCAP en tant que stagiaire.
+                        </div>
+                    </div>
+                    <div class="js-animation-2 js-hidden"> <!-- Job seek -->
+                        <div class="job-seek-message">
+                            C'est un peu vide ici... M'aideriez-vous à le remplir ?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer comment -->
+            <div class="footer-comment">
+                <p>Ecrit avec mes meilleurs amis Github Copilot et StackOverflow.</p>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar -->
+        <div class="mobile-navbar">
+            <div class="mobile-tabs">
+                <div>
+                    <a class="tab" onclick="handleHomeClick()" href="index.html">Accueil</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleAboutMeClick()" href="aboutme.html">A propos</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleBlogClick()" href="blog.html">Blog</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                </div>
+                <div class="mobile-flag"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-flex">
+                <div>
+                    <img class="header-image" src="../images/website_logo.png" onclick="window.location='index.html';"></img>
+                </div>
+                <div class="tabs">
+                    <div>
+                        <a class="tab" onclick="handleHomeClick()" href="index.html">Accueil</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleAboutMeClick()" href="">A propos</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleBlogClick()" href="blog.html">Blog</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="top-right-image" onclick="handleTopRightClick()"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../src/js/animations.js"></script>
+        <script src="../src/js/parallax.js"></script>
+        <script src="../src/js/top_right_button.js"></script>
+        <script src="../src/js/tabs.js"></script>
+        <script src="../src/js/aboutme_homepage.js"></script>
+    </body>
+</html>
