@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr" style="scroll-behavior: smooth;">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alexis Boussaroque</title>
+        <link rel="stylesheet" href="css/styles_common.css">
+        <link rel="stylesheet" href="css/styles_blog.css">
+        <link rel="stylesheet" href="../src/fonts/fonts.css">
+        <link rel="icon" href="../images/website_logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Homepage -->
+        <div class="homepage-background">
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-1" name="4" src="../images/gradient_circle.png">
+            </div>
+            <div class="home-circle-div">
+                <img class="parallax gradient-circle circle-2" name="4" src="../images/gradient_circle.png">
+            </div>
+            <div class="js-animation-blog-title">
+                <div class="blog-title js-hidden two-s">
+                    Blog
+                </div>
+                <div class="blog-subtitle js-hidden two-s">
+                    Apprenez-en plus sur mes projets avec ces articles.
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles List -->
+        <div class="white-background">
+            <div class="wide-margin-div">
+                <div class="article-tile js-hidden" onclick="window.location = '../articles/setting_up_a_mathematical_model_of_a_car/article.html';">
+                    <img src="../articles/setting_up_a_mathematical_model_of_a_car/image_porsche_944.jpg"/>
+                    <div>
+                        <span>Setting up a mathematical model of a car and simulating it.</span>
+                        <p>Being passionate about both cars and programming, I wanted to find an online resource that would put equations on such beautiful machines. Sadly, it seems that it is a lot rarer than I thought. That is why I decided to make my own using Python.</p>
+                    </div>
+                </div>
+                <div class="article-tile js-hidden" onclick="window.location = '../articles/creating_my_own_markup_language/article.html';">
+                    <img src="../articles/creating_my_own_markup_language/image_abstract.png"/>
+                    <div>
+                        <span>Creating my own markup language and its interpreter to generate custom blog articles.</span>
+                        <p>This is the first article of my blog. I just finished writing all the html to display the articles the way that I want. But I’m also thinking about my future self, who will most likely not want to dive into the code a second time. That is why I decided to create a tool that will allow me to create webpages of articles, based on a simple txt file.</p>
+                    </div>
+                </div>
+                <div class="article-tile js-hidden">
+                    <img src="../dummy_image.jpg"/>
+                    <div>
+                        <span>This is my long, very very Lorem Ipsum long, article title.</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus purus pulvinar orci tempus, ac viverra magna dictum. Nulla quis varius orci. Maecenas non auctor augue, at consectetur ipsum. Etiam mollis purus ac semper elementum. Pellentesque aliquet odio dui, eget sollicitudin urna posuere vehicula. Etiam bibendum luctus imperdiet. Nulla facilisi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar -->
+        <div class="mobile-navbar">
+            <div class="mobile-tabs">
+                <div>
+                    <a class="tab" onclick="handleHomeClick()" href="index.html">Accueil</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleAboutMeClick()" href="aboutme.html">A propos</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleBlogClick()" href="">Blog</a>
+                </div>
+                <div>
+                    <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                </div>
+                <div class="mobile-flag" onclick="changeLanguage()"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-flex">
+                <div>
+                    <img class="header-image" src="../images/website_logo.png" onclick="window.location='index.html';"></img>
+                </div>
+                <div class="tabs">
+                    <div>
+                        <a class="tab" onclick="handleHomeClick()" href="index.html">Accueil</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleAboutMeClick()" href="aboutme.html">A propos</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleBlogClick()" href="">Blog</a>
+                    </div>
+                    <div>
+                        <a class="tab" onclick="handleContactClick()" href="index.html#contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="top-right-image" onclick="handleTopRightClick()"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../src/js/animations.js"></script>
+        <script src="../src/js/parallax.js"></script>
+        <script src="../src/js/top_right_button.js"></script>
+        <script src="../src/js/tabs.js"></script>
+    </body>
+</html>
