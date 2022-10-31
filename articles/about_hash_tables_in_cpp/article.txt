@@ -24,7 +24,7 @@ The choice of the hash function is also important. Different hash functions will
 #title My implementation in C++
 #subtitle The objectives
 I wanted to create a hash table that could be used in pretty much any project. I wanted it to be quick and easy to use, that is why I chose C++. I also wanted it to be able to handle any type of data, which implies the use of templates, and function overloading.
-To demonstrate my project, I used the table to store data from NASA's JPL Small-Body Database. It contains over 1,250,000 solar system bodies, each one identified by a unique SPK-ID. I retrieved the data using the Query API, kept only the fields I was interested in, and wrote them in a CSV file. I read the data and appened them in the hash table, using the SPK-IDs (integers) as keys.
+To demonstrate my project, I used the table to store data from NASA's JPL Small-Body Database. It contains over 1,250,000 solar system bodies, each one identified by a unique SPK-ID. I retrieved the data using the Query API, kept only the fields I was interested in, wrote them in a CSV file, then appened them in the hash table, using the SPK-IDs (integers) as keys.
 
 #subtitle The Code
 The code is available on my GitHub. I will go over the most important parts here.
@@ -44,6 +44,12 @@ Now we finally have everything we need. The HashTable class is also a template. 
 #subtitle Handling errors
 Some functions can fail for different reasons. In that case, they throw an exception. This makes the code easier to debug, as the user can catch the exception and print the error message. The classes are also templated, as they display the key of the element that lead to the error. Hence, the << operator should be overloaded depending on the type of key used.
 
+#title Results
+I wrote a main function to demonstrate the program. It imports the data from the SBDB, and insert them one by one in the hash table. This operation takes some time, but once it is done the program runs smoothly. The statistics of the table are printed right after.
+To search the database, the user enters the SPK-ID of an object. The result is displayed instantly. Some famous objects are: Oumuamua (SPK-ID 33788040), Ceres (SPK-ID 2000001), and 67P/Churyumov-Gerasimenko (SPK-ID 1000012).
+// Add code of the terminal running.
+
+As always, the code is available on my Github. If you wish to use it, you will find a more in depth tutorial in the README file.
 
 
 #end
