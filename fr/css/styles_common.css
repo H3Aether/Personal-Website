@@ -78,7 +78,6 @@ b{
     display: flex;
     justify-content: space-between;
     width: 50vw;
-    padding-top: 0.6vh;
 }
 
 .tabs > div {
