@@ -63,6 +63,7 @@ body, html {
 }
 
 .title {
+    text-align: left;
     font-family: 'GT Walsheim Pro Bold';
     font-size: 45px;
     line-height: 1em;
@@ -75,6 +76,7 @@ body, html {
 }
 
 .subtitle {
+    text-align: left;
     font-family: 'Playfair Display Bold';
     font-size: 24px;
     line-height: 1.2em;
@@ -170,6 +172,10 @@ pre {
         width: 4.3vh;
         height: 4.3vh;
         margin: 2.15vh 0;
+    }
+    .menu > a {
+        margin-top: 21px;
+        margin-bottom: 21px;
     }
     .container {
         width: auto;

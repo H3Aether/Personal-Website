@@ -41,7 +41,7 @@ How to create an html article using article_json_to_html.html ?
 1. Open article_json_to_html_converter.html
 2. Select the json file of the article you want to display
 3. Copy the html code of 'container'
-4. Paste it in the empty_article.html file where it written REPLACE (line 40) and change the <title> (line 8)
+4. Paste it in the empty_article.html file where it is written REPLACE (line 40) and change the <title> (line 8)
 5. Save as a new file
 6. (Optional) Use an online html formatter to format the html code and further modify it : https://www.freeformatter.com/html-formatter.html
 7. (Optional) Add code snippets by using the following syntax :
