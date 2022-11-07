@@ -83,6 +83,11 @@
     z-index: 1;
 }
 
+.small-margin-div {
+    margin: auto;
+    width: 90%;
+}
+
 .experiences-title {
     font-family: 'GT Walsheim Pro Bold';
     font-size: 70px;
@@ -241,6 +246,9 @@
 
 /* Job tiles are aligned in column */
 @media (max-width: 1028px) {
+    .small-margin-div{
+        width: 70%;
+    }
     .white-background {
         height: 1475px;
     }
