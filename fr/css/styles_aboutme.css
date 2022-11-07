@@ -208,12 +208,6 @@
 /* Responsive */
 
 /* Job tiles are aligned 2 by 2*/
-@media (max-width: 1542px) {
-    .white-background {
-        height: 1000px;
-    }
-}
-
 @media (max-width: 1430px) {
     .homepage-background{
         height: auto;
