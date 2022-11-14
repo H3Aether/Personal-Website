@@ -8,20 +8,20 @@ This API has 3 roles. It has access to a database of all the companies listed on
 
 #subtitle /company : Get information on a listed company
 On the market, a company can be identified by its name, its symbol (often a shortened version of its name), or its unique isin ID. When given one, the API will return a JSON object containing the rest of them. The following examples return the same result :
-/ /company?symbol=STM
-/ /company?name=STMICROELECTRONICS
-/ /company?isin=NL0000226223
-/ JSON answer
+// /company?symbol=STM
+// /company?name=STMICROELECTRONICS
+// /company?isin=NL0000226223
+// JSON answer
 
 #subtitle /stock : Get real-time information on a stock
 By specifying a company the same way as above, the API will return a JSON object containing the current value of the stock, as well as a lot of additional data.
-/ /stock?symbol=MC
-/ JSON answer
+// /stock?symbol=MC
+// JSON answer
 
 #subtitle /stock/chart : Get historical data on a stock
 The API can also return historical data on a stock, namely the last values of the stock, the dates, and the volumes. A new parameter 'period' is added, and can take 2 value : 'intraday' (default) or 'max'. The first one will return minute-by-minute data for the last 5 days, while the second one will return daily data for as long as the stock has been listed.
-/ /stock/chart?symbol=AIR #implicit period=intraday
-/ JSON answer (sample)
+// /stock/chart?symbol=AIR #implicit period=intraday
+// JSON answer (sample)
 
 
 #title How it works
@@ -30,21 +30,21 @@ The app is built in Python using the Flask framework. I used the 'requests' libr
 
 #subtitle Getting the list of companies from the website
 To this day, there are 1,760 companies on the Eurnoext markets. I only want to reference companies that are on the Euronext Paris stock exchange, and tradable from Paris (430 in total). This is done via a POST request, by adding a JSON object that acts as a filter. The response is a list of HTML text, which is then parsed to extract the relevant information.
-/ Code euronext_paris_stock_list get()
+// Code euronext_paris_stock_list get()
 
 #subtitle The companies database
 The list of companies can be subject to change, but this is very rare. Hence, to avoid fetching it every time the API is called, it is stored in a database. The database is created when the app is first launched, and updated every 24 hours. This speeds up the calls.
 
 #subtitle Getting historical information on a stock from the website
 To fetch the historical prices of a stock, the API makes a GET request to the following URL:
-/ https://live.euronext.com/intraday_chart/getChartData/{isin}-{market}/{period}
+// https://live.euronext.com/intraday_chart/getChartData/{isin}-{market}/{period}
 This call needs 3 arguments, the isin, the period, and the market on which the stock is listed (which for some reason is not always 'XPAR', but can be 'XBRU' or 'XAMS'). This is where the database is useful, as it contains the isin and the market for each company.
 The response is a JSON object containing a list of dictionaries, each one containing the date, the value, and the volume of the stock. The API then returns the same object, which is already perfectly readable.
 
 #subtitle Getting real-time information on a stock from the website
 The most important data is the current value of the stock. To get it, the API uses the same method as above, but only keeps the last value.
 The other detailed information is obtained by making a GET request to the following URL:
-/ "https://live.euronext.com/en/intraday_chart/getDetailedQuoteAjax/{isin}-{market}/full
+// https://live.euronext.com/en/intraday_chart/getDetailedQuoteAjax/{isin}-{market}/full
 The response is an HTML table, which is parsed to extract the relevant information. The API then returns a JSON object containing everything that was read.
 
 #title Handling errors
