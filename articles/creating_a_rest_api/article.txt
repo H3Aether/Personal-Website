@@ -53,7 +53,7 @@ In my API, requests can fail for multiple reasons. That is why errors are genera
 - 404 : Not found. The company does not exist in the database.
 - 502 : Bad gateway. The request to the Euronext servers failed for some reason.
 
-Here is a diagram I made to guide my programming. It shows the different steps of the API, and the different errors that can occur.
+Here is a diagram I made to guide my programming. It shows the different steps of the API, and the different errors that can occur:
 #image image_diagram.png The logic of the API
 
 #title Conclusion

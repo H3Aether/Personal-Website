@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+
+
+
+    <title>Creating a REST API to get real-time data from the Euronext Paris stock exchange</title> <!-- REPLACE WITH THE TITLE OF THE ARTICLE -->
+
+
+
+    <link rel="stylesheet" href="../src/styles_articles.css">
+    <link rel="stylesheet" href="../../src/fonts/fonts.css">
+    <link rel="icon" href="../../images/website_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github.min.css">
+    <!-- Highlight.js theme -->
+
+    <!-- MathJax inline LaTeX using \( some math \)-->
+    <script type="text/x-mathjax-config">
+            MathJax = {
+              tex: {
+                inlineMath: [["\\(", "\\)"]],
+                processEscapes: true,
+              }
+            }
+        </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- MathJax -->
+</head>
+
+<body>
+    <div class="menu">
+        <img src="../../images/website_logo.png" onclick="window.location = '../../en/index.html';">
+        <a href="../../en/blog.html">Back to blog</a>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="article-title">Creating a REST API to get real-time data from the Euronext Paris stock exchange
+        </div>
+        <div class="date">November 14, 2022</div>
+        <div class="text">I had the idea to create a web application that would allow me to easily visualise my stock
+            wallet online. I started looking for a free API that would give me real-time or delayed information about
+            the Euronext stock exchange. Sadly I couldn’t find any free API that would satisfy my needs (they were all
+            heavily restricted or paid). So I decided to create my own. It will be useful if I ever want to create my
+            web app.</div>
+        <div class="title">The fonctionalities</div>
+        <div class="text">This API has 3 roles. It has access to a database of all the companies listed on the Euronext
+            Paris stock exchange. Based on that, it can provide information on any company when given either their name,
+            symbol, or isin ID. Secondly, it can provide real-time information on the value of any stock, with
+            additional data (opening price, highest and lowest price, vwap...). Finally it can access historical data,
+            up to the creation of the stock.</div>
+        <div class="subtitle">/company : Get information on a listed company</div>
+        <div class="text">On the market, a company can be identified by its name, its symbol (often a shortened version
+            of its name), or its unique isin ID. When given one, the API will return a JSON object containing the rest
+            of them. The following examples return the same result :</div>
+        <div class="text">/ /company?symbol=STM</div>
+        <div class="text">/ /company?name=STMICROELECTRONICS</div>
+        <div class="text">/ /company?isin=NL0000226223</div>
+        <div class="text">/ JSON answer</div>
+        <div class="subtitle">/stock : Get real-time information on a stock</div>
+        <div class="text">By specifying a company the same way as above, the API will return a JSON object containing
+            the current value of the stock, as well as a lot of additional data.</div>
+        <div class="text">/ /stock?symbol=MC</div>
+        <div class="text">/ JSON answer</div>
+        <div class="subtitle">/stock/chart : Get historical data on a stock</div>
+        <div class="text">The API can also return historical data on a stock, namely the last values of the stock, the
+            dates, and the volumes. A new parameter 'period' is added, and can take 2 value : 'intraday' (default) or
+            'max'. The first one will return minute-by-minute data for the last 5 days, while the second one will return
+            daily data for as long as the stock has been listed.</div>
+        <div class="text">/ /stock/chart?symbol=AIR #implicit period=intraday</div>
+        <div class="text">/ JSON answer (sample)</div>
+        <div class="title">How it works</div>
+        <div class="text">The API works by mimicking the requests made by the Euronext website. To do that, I navigated
+            the website and used the developer tools to see what requests were made. I only kept the relevant ones and
+            send them myself to the Euronext servers.</div>
+        <div class="text">The app is built in Python using the Flask framework. I used the 'requests' library to send
+            the requests to the Euronext servers, and the 'BeautifulSoup' library to parse the HTML responses. The
+            companies are stored in a SQLite database.</div>
+        <div class="subtitle">Getting the list of companies from the website</div>
+        <div class="text">To this day, there are 1,760 companies on the Eurnoext markets. I only want to reference
+            companies that are on the Euronext Paris stock exchange, and tradable from Paris (430 in total). This is
+            done via a POST request, by adding a JSON object that acts as a filter. The response is a list of HTML text,
+            which is then parsed to extract the relevant information.</div>
+        <div class="text">/ Code euronext_paris_stock_list get()</div>
+        <div class="subtitle">The companies database</div>
+        <div class="text">The list of companies can be subject to change, but this is very rare. Hence, to avoid
+            fetching it every time the API is called, it is stored in a database. The database is created when the app
+            is first launched, and updated every 24 hours. This speeds up the calls.</div>
+        <div class="subtitle">Getting historical information on a stock from the website</div>
+        <div class="text">To fetch the historical prices of a stock, the API makes a GET request to the following URL:
+        </div>
+        <div class="text">/ https://live.euronext.com/intraday_chart/getChartData/{isin}-{market}/{period}</div>
+        <div class="text">This call needs 3 arguments, the isin, the period, and the market on which the stock is listed
+            (which for some reason is not always 'XPAR', but can be 'XBRU' or 'XAMS'). This is where the database is
+            useful, as it contains the isin and the market for each company.</div>
+        <div class="text">The response is a JSON object containing a list of dictionaries, each one containing the date,
+            the value, and the volume of the stock. The API then returns the same object, which is already perfectly
+            readable.</div>
+        <div class="subtitle">Getting real-time information on a stock from the website</div>
+        <div class="text">The most important data is the current value of the stock. To get it, the API uses the same
+            method as above, but only keeps the last value.</div>
+        <div class="text">The other detailed information is obtained by making a GET request to the following URL:</div>
+        <div class="text">/ "https://live.euronext.com/en/intraday_chart/getDetailedQuoteAjax/{isin}-{market}/full</div>
+        <div class="text">The response is an HTML table, which is parsed to extract the relevant information. The API
+            then returns a JSON object containing everything that was read.</div>
+        <div class="title">Handling errors</div>
+        <div class="text">In my API, requests can fail for multiple reasons. That is why errors are generated and
+            brought to the user's attention. The following errors can occur :</div>
+        <div class="text">- 400 : Bad request. The request is not formatted correctly.</div>
+        <div class="text">- 404 : Not found. The company does not exist in the database.</div>
+        <div class="text">- 502 : Bad gateway. The request to the Euronext servers failed for some reason.</div>
+        <div class="text">Here is a diagram I made to guide my programming. It shows the different steps of the API, and
+            the different errors that can occur:</div>
+        <div class="image"><img src="image_diagram.png">The logic of the API</div>
+        <div class="title">Conclusion</div>
+        <div class="text">I am very happy with the result. The API is reliable, quite fast (considering it makes
+            requests to other servers and not only to the local database), and easy to use. I will probably use it in
+            the future to create my web app. I don't plan on deploying it yet, as it is not very useful for the moment.
+            But if you want to use it, you can find the code on my GitHub.</div>
+        <div class="footer">Written by Alexis Boussaroque.</div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <!-- Highlight.js script -->
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
