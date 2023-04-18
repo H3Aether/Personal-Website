@@ -144,8 +144,14 @@
     margin: 0;
 }
 
+.job-dates{
+    text-align: right;
+    width: 80px;
+}
+
 .job-logo {
     height: 80px;
+    width: 220px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -153,7 +159,9 @@
 }
 
 .job-logo > img {
-    height: 80px;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .job-title{
